@@ -14,12 +14,20 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
 - Framework Web: FastAPI
 - Servidor: Uvicorn
 
-## 💻 Requisitos para rodar o projeto
-- Python 3.10 ou superior
-- Pip (gerenciador de pacotes do Python)
-- Um ambiente virtual configurado
+## 💻 Criando o ambiente virtual
+-- Recomendado: Crie um diretório/pasta para executar o servidor
 
-## 🚀 Criando o ambiente
+- __*Ativando ambiente*__
+**Windows**
+```bash
+  venv\Scripts\activate
+```
+
+**Linux/macOS:**
+```bash
+  source venv/bin/activate
+```
+
 
 ## 🚀 Rodando o projeto
 
