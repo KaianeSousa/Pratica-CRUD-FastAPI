@@ -29,13 +29,14 @@ Cadastra um novo doador.
 - **Resposta (caso a idade esteja entre 16 e 69 anos):**
 ```json
 {
-    "mensagem": "Sucesso ao listar doadores:",
-    "doadores": [{ "id": 1,
-                  "nome": "Lara",
-                  "idade": 24,
-                  "tipo_sanguineo": "AB",
-                  "data_da_ultima_doacao": "16-02-2021"
-}]
+    "mensagem": "Doador cadastrado com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 16,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
 }
 ```
 - **Resposta (caso a idade seja menor que 16 ou maior que 69 anos):**
@@ -51,7 +52,7 @@ Cadastra um novo doador.
 
 Retorna uma lista com todos os doadores cadastrados.
 
-**Resposta:**
+- **Resposta:**
 ```json
 {
     "mensagem": "Lista de todos os doadores disponíveis:",
@@ -66,11 +67,19 @@ Retorna uma lista com todos os doadores cadastrados.
     ]
 }
 ```
-### 2. **Listar doador pelo ID** 📋
 
-**GET** `/doadores/1`
+- **Resposta caso não exista doador cadastrado:**
+```json
+{
+    "detail": "Nenhum doador encontrado."
+}
+```
+      
+### 3. **Listar doador pelo ID** 📋
 
-Retorna o doador cadastro referente ao seu ID.
+**GET** `/doadores/{doador_id}`
+
+Retorna o doador cadastrado referente ao seu ID.
 
 **Resposta:**
 ```json
@@ -84,5 +93,12 @@ Retorna o doador cadastro referente ao seu ID.
         "data_da_ultima_doacao": "23-06-2021"
     }
 }
+}
+```
+
+- **Resposta caso não exista doador cadastrado:**
+```json
+{
+    "detail": "Doador não encontrado"
 }
 ```
