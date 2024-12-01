@@ -10,16 +10,14 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
 - Validação de idade: Apenas doadores entre 16 e 69 anos podem ser cadastrados.
 
 ## 🛠️ Tecnologias Utilizadas
-Linguagem: Python 3.12.5
-Framework Web: FastAPI
-Servidor: Uvicorn
+- Linguagem: Python 3.12.5
+- Framework Web: FastAPI
+- Servidor: Uvicorn
 
 ## 💻 Requisitos para Rodar o Projeto
-Certifique-se de ter instalado em sua máquina:
-
-Python 3.10 ou superior
-Pip (gerenciador de pacotes do Python)
-Um ambiente virtual configurado
+- Python 3.10 ou superior
+- Pip (gerenciador de pacotes do Python)
+- Um ambiente virtual configurado
 
 ## 🚀 Rodando o Projeto
 
