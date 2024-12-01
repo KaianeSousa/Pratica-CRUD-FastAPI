@@ -15,7 +15,20 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
 - Servidor: Uvicorn
 
 ## 💻 Criando o ambiente virtual
-- Recomendado: Crie um diretório/pasta para executar o servidor
+- Recomendado: Crie um diretório para executar o servidor
+```bash
+  mkdir servidor_fastapi
+ ```
+
+- Entre no diretório criado
+```bash
+  cd servidor_fastapi
+```
+
+- Criando ambiente
+```bash
+  python -m venv venv
+```
 
 - __*Ativando ambiente*__
 
@@ -29,6 +42,10 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
   source venv/bin/activate
 ```
 
+### Instalando as dependências: FastAPI e servidor Unicorn
+```bash
+  pip install fastapi uvicorn
+```
 
 ## 🚀 Rodando o projeto
 
