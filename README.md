@@ -145,7 +145,7 @@ Permite modificar os dados do doador.
 Deleta os dados do doador.
 
 - **Resposta:**
-- ```json
+```json
 {
     "detail": "Doador removido com sucesso"
 }
