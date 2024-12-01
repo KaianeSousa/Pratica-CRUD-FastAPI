@@ -142,7 +142,7 @@ Permite modificar os dados do doador.
 
 **DELETE** `/doadores/{doador_id}`
 
-Deleta os dados do doador.
+Deleta o doador e seus os dados do sistema.
 
 - **Resposta:**
 ```json
