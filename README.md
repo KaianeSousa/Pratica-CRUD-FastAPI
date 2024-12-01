@@ -15,9 +15,10 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
 - Servidor: Uvicorn
 
 ## 💻 Criando o ambiente virtual
--- Recomendado: Crie um diretório/pasta para executar o servidor
+- Recomendado: Crie um diretório/pasta para executar o servidor
 
 - __*Ativando ambiente*__
+
 **Windows**
 ```bash
   venv\Scripts\activate
