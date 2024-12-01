@@ -50,14 +50,7 @@ Cadastra um novo doador.
 - **Resposta, caso já exista um doador com o ID:**
 ```json
 {
-    "mensagem": "Doador cadastrado com sucesso:",
-    "doador": {
-        "id": 1,
-        "nome": "Beatriz",
-        "idade": 16,
-        "tipo_sanguineo": "O-",
-        "data_da_ultima_doacao": "23-06-2021"
-    }
+    "detail": "Já existe um doador com este ID: 1"
 }
 ```
   
