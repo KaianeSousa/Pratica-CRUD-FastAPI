@@ -57,9 +57,14 @@ Intellij
   idea .
 ```
 
--- Crie um arquivo main.py e o execute
+-- Crie um arquivo main.py, cole o código do arquivo com o mesmo nome neste repositório e o execute com
 ```bash
   uvicorn main:app --reload
+```
+
+**Ou, se preferir, basta fazer o git clone desde projeto**
+```bash
+  git@github.com:KaianeSousa/fastapi_project.git
 ```
 
 ## 🚀 Rodando o projeto
