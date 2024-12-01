@@ -64,7 +64,7 @@ Intellij
   uvicorn main:app --reload
 ```
 
-**Ou, se preferir, basta fazer o git clone desde projeto**
+**Ou, se preferir, basta fazer o git clone deste projeto**
 ```bash
   git@github.com:KaianeSousa/Pratica-CRUD-FastAPI.git
 ```
