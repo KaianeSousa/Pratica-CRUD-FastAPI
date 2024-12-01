@@ -44,7 +44,7 @@ Além disso, permite a personalização de informações como o tipo sanguíneo 
   source venv/bin/activate
 ```
 
-- ### Instale as dependências: FastAPI e servidor Unicorn
+- #### Instale as dependências: FastAPI e servidor Unicorn
 ```bash
   pip install fastapi uvicorn
 ```
@@ -59,7 +59,7 @@ Intellij
 ```bash
   idea .
 ```
-### Caso não queria configurar um ambiente, basta baixar o Pycharm: https://www.jetbrains.com/pycharm/ e executar
+#### Caso não queria configurar um ambiente, basta baixar o Pycharm: https://www.jetbrains.com/pycharm/ e executar
 ```bash
   charm .
 ```
