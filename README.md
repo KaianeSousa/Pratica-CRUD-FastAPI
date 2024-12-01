@@ -69,6 +69,10 @@ Intellij
   git@github.com:KaianeSousa/Pratica-CRUD-FastAPI.git
 ```
 
+## 🛣️ Rotas no Postman
+
+Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/40103969-076946bd-1317-42c5-a36a-6ccb8ba8348d?action=share&creator=40103969
+
 ## 🚀 Rodando o projeto
 
 ### 1. **Cadastrar doador** 📋
