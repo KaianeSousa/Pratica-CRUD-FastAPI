@@ -42,9 +42,24 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
   source venv/bin/activate
 ```
 
-### Instalando as dependências: FastAPI e servidor Unicorn
+- ### Instale as dependências: FastAPI e servidor Unicorn
 ```bash
   pip install fastapi uvicorn
+```
+
+**Abra algum editor de código com terminal, como:**
+Visual Studio Code
+```bash
+  code .
+```
+Intellij
+```bash
+  idea .
+```
+
+-- Crie um arquivo main.py e o execute
+```bash
+  uvicorn main:app --reload
 ```
 
 ## 🚀 Rodando o projeto
