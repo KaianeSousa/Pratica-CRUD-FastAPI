@@ -26,7 +26,7 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
 
 Cadastra um novo doador.
 
-- **Resposta (caso a idade esteja entre 16 e 69 anos):**
+- **Resposta, caso a idade esteja entre 16 e 69 anos:**
 ```json
 {
     "mensagem": "Doador cadastrado com sucesso:",
@@ -39,10 +39,25 @@ Cadastra um novo doador.
     }
 }
 ```
-- **Resposta (caso a idade seja menor que 16 ou maior que 69 anos):**
+
+- **Resposta, caso a idade seja menor que 16 ou maior que 69 anos:**
 ```json
 {
     "detail": "Idade inválida! O doador deve ter entre 16 e 69 anos."
+}
+```
+
+- **Resposta, caso já exista um doador com o ID:**
+```json
+{
+    "mensagem": "Doador cadastrado com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 16,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
 }
 ```
   
@@ -102,3 +117,49 @@ Retorna o doador cadastrado referente ao seu ID.
     "detail": "Doador não encontrado"
 }
 ```
+
+### 4. **Atualizar informações do doador** 📋
+
+**PUT** `/doadores/{doador_id}`
+
+Permite modificar os dados do doador.
+
+- **Resposta:**
+```json
+{
+    "mensagem": "Dados do doador atualizados com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 17,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
+}
+```
+
+- **Resposta caso o doador não exista:**
+```json
+{
+    "detail": "Doador não encontrado"
+}
+```
+
+### 5. **Deletar doador** 📋
+
+**DELETE** `/doadores/{doador_id}`
+
+Deleta os dados do doador.
+
+- **Resposta:**
+- ```json
+{
+    "detail": "Doador removido com sucesso"
+}
+```
+
+
+
+
+
+
