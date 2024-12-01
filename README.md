@@ -21,3 +21,68 @@ O sistema valida que os doadores estejam dentro da faixa etária permitida e for
 
 ## 🚀 Rodando o Projeto
 
+### 1. **Cadastrar doador** 📋
+**POST** `/doadores`
+
+Cadastra um novo doador.
+
+- **Resposta (caso a idade esteja entre 16 e 69 anos):**
+```json
+{
+    "mensagem": "Sucesso ao listar doadores:",
+    "doadores": [{ "id": 1,
+                  "nome": "Lara",
+                  "idade": 24,
+                  "tipo_sanguineo": "AB",
+                  "data_da_ultima_doacao": "16-02-2021"
+}]
+}
+```
+- **Resposta (caso a idade seja menor que 16 ou maior que 69 anos):**
+```json
+{
+    "detail": "Idade inválida! O doador deve ter entre 16 e 69 anos."
+}
+```
+  
+### 2. **Listar todos os doadores** 📋
+
+**GET** `/doadores`
+
+Retorna uma lista com todos os doadores cadastrados.
+
+**Resposta:**
+```json
+{
+    "mensagem": "Lista de todos os doadores disponíveis:",
+    "doadores": [
+        {
+            "id": 1,
+            "nome": "Beatriz",
+            "idade": 16,
+            "tipo_sanguineo": "O-",
+            "data_da_ultima_doacao": "23-06-2021"
+        }
+    ]
+}
+```
+### 2. **Listar doador pelo ID** 📋
+
+**GET** `/doadores/1`
+
+Retorna o doador cadastro referente ao seu ID.
+
+**Resposta:**
+```json
+{
+    "mensagem": "Doador encontrado com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 16,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
+}
+}
+```
