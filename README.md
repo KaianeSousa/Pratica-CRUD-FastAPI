@@ -64,7 +64,7 @@ Intellij
 
 **Ou, se preferir, basta fazer o git clone desde projeto**
 ```bash
-  git@github.com:KaianeSousa/fastapi_project.git
+  git@github.com:KaianeSousa/Pratica-CRUD-FastAPI.git
 ```
 
 ## 🚀 Rodando o projeto
