@@ -9,12 +9,12 @@ Além disso, permite a personalização de informações como o tipo sanguíneo 
 - Consultar doadores: Liste todos os doadores cadastrados ou consulte por ID.
 - Atualizar doador: Atualize os dados de um doador existente.
 - Excluir doador: Remova um doador cadastrado.
-- Validação de idade: Apenas doadores entre 16 e 69 anos podem ser cadastrados.
 
 ## 🛠️ Tecnologias utilizadas
 - Linguagem: Python 3.12.5
 - Framework Web: FastAPI
 - Servidor: Uvicorn
+- IDE: Pycharm
 
 ## 💻 Criando o ambiente virtual
 - Recomendado: Crie um diretório para executar o servidor
