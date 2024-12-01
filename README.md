@@ -64,7 +64,7 @@ Intellij
   charm .
 ```
 
--- Crie um arquivo main.py, cole o código do arquivo com o mesmo nome neste repositório e o execute com
+- Crie um arquivo main.py, cole o código do arquivo com o mesmo nome neste repositório e o execute com
 ```bash
   uvicorn main:app --reload
 ```
