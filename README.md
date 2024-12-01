@@ -1,6 +1,8 @@
 # Sistema de Cadastro de Doadores
-Este projeto é um sistema para gerenciamento de doadores, desenvolvido com FastAPI para criar e gerenciar doadores utilizando as operações CRUD (Create, Read, Update e Delete). 
-O sistema valida que os doadores estejam dentro da faixa etária permitida e fornece uma interface interativa para visualização das rotas.
+
+Este projeto é um sistema para gerenciamento de doadores, desenvolvido com FastAPI para criar e gerenciar doadores utilizando as operações CRUD (Create, Read, Update e Delete).
+O sistema valida que os doadores estejam dentro da faixa etária permitida (16 a 69 anos), garantindo que apenas dados válidos sejam cadastrados. 
+Além disso, permite a personalização de informações como o tipo sanguíneo e idade do doador.
 
 ## 📋 Funcionalidades
 - Cadastrar doador: Adicione informações sobre um novo doador.
@@ -148,7 +150,6 @@ Retorna o doador cadastrado referente ao seu ID.
         "tipo_sanguineo": "O-",
         "data_da_ultima_doacao": "23-06-2021"
     }
-}
 }
 ```
 
