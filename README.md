@@ -80,10 +80,10 @@ Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/
 
 ## 🚀 Rodando o projeto
 
-### Doadores 👥
+- ### Doadores 👥
 
 ### 1. **Cadastrar doador** 📋
-**POST** `/doadores`
+**POST** `/doadores/adicionar`
 
 Cadastra um novo doador.
 
@@ -173,7 +173,7 @@ Retorna o doador cadastrado referente ao seu ID.
 
 ### 4. **Atualizar informações do doador** 📋
 
-**PUT** `/doadores/{doador_id}`
+**PUT** `/doadores/atualizar/{doador_id}`
 
 Permite modificar os dados do doador.
 
@@ -191,18 +191,11 @@ Permite modificar os dados do doador.
 }
 ```
 
-- **Resposta caso o doador não exista:**
-```json
-{
-    "detail": "Doador não encontrado"
-}
-```
-
 ### 5. **Deletar doador** 📋
 
 **DELETE** `/doadores/{doador_id}`
 
-Deleta o doador e seus os dados do sistema.
+Deleta o doador e seus dados.
 
 - **Resposta:**
 ```json
@@ -211,10 +204,10 @@ Deleta o doador e seus os dados do sistema.
 }
 ```
 
-### Recebedores 🧍‍♀️🧍‍♂️🧍
+- ### Recebedores  👩‍🦳👨👧
 
 ### 1. **Cadastrar recebedor** 📋
-**POST** `/doadores`
+**POST** `/recebedores/adicionar`
 
 Cadastra um novo recebedor.
 
@@ -239,51 +232,51 @@ Cadastra um novo recebedor.
 }
 ```
   
-### 2. **Listar todos os doadores** 📋
+### 2. **Listar todos os recebedores** 📋
 
-**GET** `/doadores`
+**GET** `/recebedores`
 
-Retorna uma lista com todos os doadores cadastrados.
+Retorna uma lista com todos os recebedores cadastrados.
 
 - **Resposta:**
 ```json
 {
-    "mensagem": "Lista de todos os doadores disponíveis:",
-    "doadores": [
+ "mensagem": "Lista de todos os recebedores disponíveis:",
+    "recebedores": [
         {
             "id": 1,
-            "nome": "Beatriz",
-            "idade": 16,
-            "tipo_sanguineo": "O-",
-            "data_da_ultima_doacao": "23-06-2021"
+            "nome": "Joana",
+            "idade": 26,
+            "tipo_sanguineo": "O+",
+            "necessidades_de_sangue": "Urgente"
         }
     ]
 }
 ```
 
-- **Resposta caso não exista doador cadastrado:**
+- **Resposta caso não exista recebedor cadastrado:**
 ```json
 {
-    "detail": "Nenhum doador encontrado."
+    "detail": "Nenhum recebedor encontrado."
 }
 ```
       
-### 3. **Listar doador pelo ID** 📋
+### 3. **Listar recebedor pelo ID** 📋
 
-**GET** `/doadores/{doador_id}`
+**GET** `/recebedores/{recebedor_id}`
 
 Retorna o doador cadastrado referente ao seu ID.
 
 **Resposta:**
 ```json
 {
-    "mensagem": "Doador encontrado com sucesso:",
-    "doador": {
+    "mensagem": "Recebedor encontrado com sucesso:",
+    "recebedor": {
         "id": 1,
-        "nome": "Beatriz",
-        "idade": 16,
-        "tipo_sanguineo": "O-",
-        "data_da_ultima_doacao": "23-06-2021"
+        "nome": "Joana",
+        "idade": 26,
+        "tipo_sanguineo": "O+",
+        "necessidades_de_sangue": "Urgente"
     }
 }
 ```
@@ -291,51 +284,56 @@ Retorna o doador cadastrado referente ao seu ID.
 - **Resposta caso não exista doador cadastrado:**
 ```json
 {
-    "detail": "Doador não encontrado"
+    "detail": "Recebedor não encontrado"
 }
 ```
 
-### 4. **Atualizar informações do doador** 📋
+### 4. **Atualizar informações do recebedor** 📋
 
-**PUT** `/doadores/{doador_id}`
+**PUT** `/recebedores/atualizar/{recebedor_id}`
 
-Permite modificar os dados do doador.
+Permite modificar os dados do recebedor.
 
 - **Resposta:**
 ```json
 {
-    "mensagem": "Dados do doador atualizados com sucesso:",
-    "doador": {
+    "mensagem": "Dados do recebedor atualizados com sucesso:",
+    "recebedor": {
         "id": 1,
-        "nome": "Beatriz",
-        "idade": 17,
+        "nome": "Joana",
+        "idade": 27,
         "tipo_sanguineo": "O-",
-        "data_da_ultima_doacao": "23-06-2021"
+        "necessidades_de_sangue": "Urgente"
     }
-}
-```
-
-- **Resposta caso o doador não exista:**
-```json
-{
-    "detail": "Doador não encontrado"
 }
 ```
 
 ### 5. **Deletar doador** 📋
 
-**DELETE** `/doadores/{doador_id}`
+**DELETE** `/recebedores/{recebedor_id}`
 
-Deleta o doador e seus os dados do sistema.
+Deleta o recebedor e seus dados.
 
 - **Resposta:**
 ```json
 {
-    "detail": "Doador removido com sucesso"
+    "detail": "Recebedor removido com sucesso"
 }
 ```
 
+- ### Doação 🩸
 
+**POST** `/doacao/`
+
+Encontra o doador com o sangue compatível ao do recebedor.
+
+- **Resposta:**
+```json
+{
+    "mensagem": "Doação compatível de Beatriz para Joana"
+}
+```
+  
 
 
 
