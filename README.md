@@ -76,9 +76,11 @@ Intellij
 
 ## 🛣️ Rotas no Postman
 
-Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/40103969-076946bd-1317-42c5-a36a-6ccb8ba8348d?action=share&creator=40103969
+Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/40103969-ecd0c70d-6fd5-4275-965f-b44ad1bf2872?action=share&creator=40103969
 
 ## 🚀 Rodando o projeto
+
+### Doadores 👥
 
 ### 1. **Cadastrar doador** 📋
 **POST** `/doadores`
@@ -110,6 +112,130 @@ Cadastra um novo doador.
 ```json
 {
     "detail": "Já existe um doador com este ID: 1"
+}
+```
+  
+### 2. **Listar todos os doadores** 📋
+
+**GET** `/doadores`
+
+Retorna uma lista com todos os doadores cadastrados.
+
+- **Resposta:**
+```json
+{
+    "mensagem": "Lista de todos os doadores disponíveis:",
+    "doadores": [
+        {
+            "id": 1,
+            "nome": "Beatriz",
+            "idade": 16,
+            "tipo_sanguineo": "O-",
+            "data_da_ultima_doacao": "23-06-2021"
+        }
+    ]
+}
+```
+
+- **Resposta caso não exista doador cadastrado:**
+```json
+{
+    "detail": "Nenhum doador encontrado."
+}
+```
+      
+### 3. **Listar doador pelo ID** 📋
+
+**GET** `/doadores/{doador_id}`
+
+Retorna o doador cadastrado referente ao seu ID.
+
+**Resposta:**
+```json
+{
+    "mensagem": "Doador encontrado com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 16,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
+}
+```
+
+- **Resposta caso não exista doador cadastrado:**
+```json
+{
+    "detail": "Doador não encontrado"
+}
+```
+
+### 4. **Atualizar informações do doador** 📋
+
+**PUT** `/doadores/{doador_id}`
+
+Permite modificar os dados do doador.
+
+- **Resposta:**
+```json
+{
+    "mensagem": "Dados do doador atualizados com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 17,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
+}
+```
+
+- **Resposta caso o doador não exista:**
+```json
+{
+    "detail": "Doador não encontrado"
+}
+```
+
+### 5. **Deletar doador** 📋
+
+**DELETE** `/doadores/{doador_id}`
+
+Deleta o doador e seus os dados do sistema.
+
+- **Resposta:**
+```json
+{
+    "detail": "Doador removido com sucesso"
+}
+```
+
+### Recebedores 🧍‍♀️🧍‍♂️🧍
+
+### 1. **Cadastrar recebedor** 📋
+**POST** `/doadores`
+
+Cadastra um novo recebedor.
+
+- **Resposta**
+```json
+{
+    "mensagem": "Recebedor cadastrado com sucesso:",
+    "recebedor": {
+        "id": 1,
+        "nome": "Joana",
+        "idade": 26,
+        "tipo_sanguineo": "O+",
+        "necessidades_de_sangue": "Urgente"
+    }
+}
+```
+
+- **Resposta, caso já exista um recebedor com o ID:**
+```json
+{
+    "detail": "Já existe um recebedor com este ID: 1"
 }
 ```
   
