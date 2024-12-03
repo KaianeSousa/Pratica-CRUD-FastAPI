@@ -1,8 +1,8 @@
 # 🩸 Sistema de Cadastro de Doadores
 
-Este projeto é um sistema para gerenciamento de doadores e receptores de sangue, desenvolvido com **FastAPI** para criar e gerenciar informações utilizando operações CRUD (Create, Read, Update e Delete).  
+Este projeto simula um sistema para gerenciamento de doadores e receptores de sangue, desenvolvido com o framework FastAPI, permitindo a criação e gestão de informações de maneira eficiente e organizada. Ele utiliza as operações CRUD (Create, Read, Update e Delete) para manipular dados de doadores e receptores.
 
-Além de gerenciar dados básicos dos doadores e receptores, o sistema realiza validações para verificar a compatibilidade sanguínea entre eles, incluindo casos especiais como o **"sangue dourado"** (Rh nulo).
+Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o sistema conta com uma lógica para validação de compatibilidade sanguínea. Essa funcionalidade assegura que as doações sejam realizadas para os tipos sanguíneos correspondentes, respeitando as regras biológicas entre os diferentes tipos sanguíneos, incluindo situações especiais, como indivíduos com o raro "sangue dourado" (Rh nulo). Este tipo sanguíneo, devido à sua extrema raridade, pode doar para praticamente qualquer pessoa, mas só pode receber sangue do mesmo grupo.
 
 ---
 
@@ -412,7 +412,6 @@ Encontra o doador com o sangue compatível ao do recebedor.
 
 **Resposta**
 ```json
-{
 {
     "mensagem": "Doação compatível de Beatriz para Joana"
 }
