@@ -6,22 +6,6 @@ Além de gerenciar dados básicos dos doadores e receptores, o sistema realiza v
 
 ---
 
-## 🩺 Tabela de Compatibilidade Sanguínea
-
-| Tipo Sanguíneo | Pode doar para           | Pode receber de         |
-|----------------|--------------------------|--------------------------|
-| **A+**         | AB+, A+                 | A+, A-, O+, O-          |
-| **A-**         | A+, A-, AB+, AB-        | A-, O-                  |
-| **B+**         | B+, AB+                 | B+, B-, O+, O-          |
-| **B-**         | B+, B-, AB+, AB-        | B-, O-                  |
-| **AB+**        | AB+                     | Todos os tipos          |
-| **AB-**        | AB+, AB-                | A-, B-, AB-, O-         |
-| **O+**         | A+, B+, AB+, O+         | O+, O-                  |
-| **O-**         | Todos os tipos          | O-                      |
-| **Rh nulo**    | Apenas Rh nulo          | Rh nulo, O-             |
-
- ----
-
 ## 📋 Funcionalidades
 
 ### **Gerenciamento de Doadores**
@@ -90,6 +74,21 @@ O sistema valida automaticamente:
 
 ---
 
+## 🩺 Tabela de Compatibilidade Sanguínea
+
+| Tipo Sanguíneo | Pode doar para           | Pode receber de         |
+|----------------|--------------------------|--------------------------|
+| **A+**         | AB+, A+                  | A+, A-, O+, O-           |
+| **A-**         | A+, A-, AB+, AB-         | A-, O-                   |
+| **B+**         | B+, AB+                  | B+, B-, O+, O-           |
+| **B-**         | B+, B-, AB+, AB-         | B-, O-                   |
+| **AB+**        | AB+                      | Todos os tipos           |
+| **AB-**        | AB+, AB-                 | A-, B-, AB-, O-          |
+| **O+**         | A+, B+, AB+, O+          | O+, O-                   |
+| **O-**         | Todos os tipos           | O-                       |
+| **Rh nulo**    | Apenas Rh nulo           | Rh nulo                  |
+
+---
 
 ## 💻 Criando o ambiente virtual
 - Recomendado: Crie um diretório para executar o servidor
