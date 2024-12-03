@@ -1,20 +1,95 @@
-# Sistema de Cadastro de Doadores
+# 🩸 Sistema de Cadastro de Doadores
 
-Este projeto é um sistema para gerenciamento de doadores, desenvolvido com FastAPI para criar e gerenciar doadores utilizando as operações CRUD (Create, Read, Update e Delete).
-O sistema valida que os doadores estejam dentro da faixa etária permitida (16 a 69 anos), garantindo que apenas dados válidos sejam cadastrados. 
-Além disso, permite a personalização de informações como o tipo sanguíneo e idade do doador.
+Este projeto é um sistema para gerenciamento de doadores e receptores de sangue, desenvolvido com **FastAPI** para criar e gerenciar informações utilizando operações CRUD (Create, Read, Update e Delete).  
+
+Além de gerenciar dados básicos dos doadores e receptores, o sistema realiza validações para verificar a compatibilidade sanguínea entre eles, incluindo casos especiais como o **"sangue dourado"** (Rh nulo).
+
+---
+
+## 🩺 Tabela de Compatibilidade Sanguínea
+
+| Tipo Sanguíneo | Pode doar para           | Pode receber de         |
+|----------------|--------------------------|--------------------------|
+| **A+**         | AB+, A+                 | A+, A-, O+, O-          |
+| **A-**         | A+, A-, AB+, AB-        | A-, O-                  |
+| **B+**         | B+, AB+                 | B+, B-, O+, O-          |
+| **B-**         | B+, B-, AB+, AB-        | B-, O-                  |
+| **AB+**        | AB+                     | Todos os tipos          |
+| **AB-**        | AB+, AB-                | A-, B-, AB-, O-         |
+| **O+**         | A+, B+, AB+, O+         | O+, O-                  |
+| **O-**         | Todos os tipos          | O-                      |
+| **Rh nulo**    | Apenas Rh nulo          | Rh nulo, O-             |
+
+ ----
 
 ## 📋 Funcionalidades
-- Cadastrar doador: Adicione informações sobre um novo doador.
-- Consultar doadores: Liste todos os doadores cadastrados ou consulte por ID.
-- Atualizar doador: Atualize os dados de um doador existente.
-- Excluir doador: Remova um doador cadastrado.
 
-## 🛠️ Tecnologias utilizadas
-- Linguagem: Python 3.12.5
-- Framework Web: FastAPI
-- Servidor: Uvicorn
-- IDE: Pycharm
+### **Gerenciamento de Doadores**
+- **Cadastrar doador:** Adicione informações como nome, idade e tipo sanguíneo de um novo doador.
+- **Consultar doadores:** Liste todos os doadores cadastrados ou realize consultas por ID.
+- **Atualizar doador:** Atualize os dados de um doador já existente.
+- **Excluir doador:** Remova um doador cadastrado do sistema.
+
+### **Gerenciamento de Receptores**
+- **Cadastrar receptor:** Insira informações sobre receptores, como nome, idade e tipo sanguíneo.
+- **Consultar receptores:** Liste todos os receptores cadastrados ou realize consultas por ID.
+- **Atualizar receptor:** Atualize os dados de um receptor já existente.
+- **Excluir receptor:** Remova um receptor cadastrado do sistema.
+
+### **Gerenciamento de Doações**
+- **Verificar compatibilidade sanguínea:**  
+  - O sistema valida automaticamente a compatibilidade entre doador e receptor com base na **tabela de compatibilidade sanguínea**.
+  - Tipos sanguíneos suportados:  
+    - A+, A-, B+, B-, AB+, AB-, O+, O- e Rh nulo (sangue dourado).
+
+- **Casos especiais:**
+  - **Rh nulo (sangue dourado):**  
+    - Pode doar para qualquer um.
+    - Pode receber apenas Rh nulo.  
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+- **Linguagem:** Python 3.12.5
+- **Framework Web:** FastAPI
+- **Servidor:** Uvicorn
+- **IDE:** PyCharm  
+
+---
+
+## 🚀 Como o Sistema Funciona
+
+### 1. **Cadastro de Doadores e Receptores**
+Insira informações básicas do doador/receptor, como:
+  - Nome
+  - Idade
+  - Tipo sanguíneo  
+O sistema valida automaticamente:
+  - Idade dos doadores (16 a 69 anos).
+  - Tipos sanguíneos inseridos.
+
+### 2. **Consulta de Doadores e Receptores**
+- Liste todos os doadores ou receptores cadastrados.
+- Consulte informações específicas usando o **ID**.
+
+### 3. **Atualização e Exclusão**
+- **Atualize:** Modifique dados de um doador ou receptor já cadastrado.
+- **Exclua:** Remova qualquer registro de doador ou receptor.
+
+### 4. **Validação de Doações**
+- Insira o **ID do doador** e o **ID do receptor**.
+- O sistema verificará se a doação é compatível, seguindo as regras de compatibilidade:
+  - A tabela de compatibilidade sanguínea é utilizada.
+  - Tipos especiais como Rh nulo recebem validações específicas.
+
+### 5. **Compatibilidade com Rh Nulo**
+- **Doadores com Rh nulo:**
+  - Podem doar apenas para outros Rh nulos.
+- **Receptores com Rh nulo:**
+  - Podem receber de qualquer Rh nulo ou do tipo O-.
+
+---
+
 
 ## 💻 Criando o ambiente virtual
 - Recomendado: Crie um diretório para executar o servidor
@@ -74,7 +149,7 @@ Intellij
 ```bash
   git@github.com:KaianeSousa/Pratica-CRUD-FastAPI.git
 ```
-
+---
 ## 🛣️ Rotas no Postman
 
 Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/40103969-ecd0c70d-6fd5-4275-965f-b44ad1bf2872?action=share&creator=40103969
@@ -204,7 +279,7 @@ Deleta o doador e seus dados.
     "detail": "Doador removido com sucesso"
 }
 ```
-
+---
 - ### Recebedores  👩‍🦳👨👧
 
 ### 1. **Cadastrar recebedor** 📋
@@ -321,14 +396,30 @@ Deleta o recebedor e seus dados.
     "detail": "Recebedor removido com sucesso"
 }
 ```
-
-- ### Doação 🩸
+---
+- ### Doação 💉
 
 **POST** `/doacao/`
 
 Encontra o doador com o sangue compatível ao do recebedor.
 
-- **Resposta:**
+**Entrada**
+```json
+{
+  "doador_id": 1,
+  "recebedor_id": 1
+}
+```
+
+**Resposta**
+```json
+{
+{
+    "mensagem": "Doação compatível de Beatriz para Joana"
+}
+```
+
+- **Resposta, caso os sangues sejam incompatíveis:**
 ```json
 {
     "detail": "Incompatibilidade: O+ não pode doar para Rh-nulo"
