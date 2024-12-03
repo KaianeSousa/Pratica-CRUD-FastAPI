@@ -331,7 +331,7 @@ Encontra o doador com o sangue compatível ao do recebedor.
 - **Resposta:**
 ```json
 {
-    "mensagem": "Doação compatível de Beatriz para Joana"
+    "detail": "Incompatibilidade: O+ não pode doar para Rh-nulo"
 }
 ```
   
