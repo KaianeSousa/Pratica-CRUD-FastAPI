@@ -304,7 +304,7 @@ Deleta o doador e seus dados.
         "nome": "Joana",
         "idade": 26,
         "tipo_sanguineo": "O+",
-        "necessidades_de_sangue": "Urgente"
+        "necessidades_de_sangue": "Cirurgia"
     }
 }
 ```
@@ -323,7 +323,7 @@ Cadastra um novo recebedor.
         "nome": "Joana",
         "idade": 26,
         "tipo_sanguineo": "O+",
-        "necessidades_de_sangue": "Urgente"
+        "necessidades_de_sangue": "Cirurgia"
     }
 }
 ```
@@ -351,7 +351,7 @@ Retorna uma lista com todos os recebedores cadastrados.
             "nome": "Joana",
             "idade": 26,
             "tipo_sanguineo": "O+",
-            "necessidades_de_sangue": "Urgente"
+            "necessidades_de_sangue": "Cirurgia"
         }
     ]
 }
@@ -379,7 +379,7 @@ Retorna o doador cadastrado referente ao seu ID.
         "nome": "Joana",
         "idade": 26,
         "tipo_sanguineo": "O+",
-        "necessidades_de_sangue": "Urgente"
+        "necessidades_de_sangue": "Cirurgia"
     }
 }
 ```
@@ -406,7 +406,7 @@ Permite modificar os dados do recebedor.
         "nome": "Joana",
         "idade": 27,
         "tipo_sanguineo": "O-",
-        "necessidades_de_sangue": "Urgente"
+        "necessidades_de_sangue": "Cirurgia"
     }
 }
 ```
