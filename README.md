@@ -157,6 +157,20 @@ Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/
 
 - ### Doadores 👥
 
+  ### Código JSON de entrada:
+```json
+{
+    "mensagem": "Doador cadastrado com sucesso:",
+    "doador": {
+        "id": 1,
+        "nome": "Beatriz",
+        "idade": 16,
+        "tipo_sanguineo": "O-",
+        "data_da_ultima_doacao": "23-06-2021"
+    }
+}
+```
+
 ### 1. **Cadastrar doador** 📋
 **POST** `/doadores/adicionar`
 
@@ -280,6 +294,20 @@ Deleta o doador e seus dados.
 ```
 ---
 - ### Recebedores  👩‍🦳👨👧
+
+    ### Código JSON de entrada:
+```json
+{
+    "mensagem": "Recebedor cadastrado com sucesso:",
+    "recebedor": {
+        "id": 1,
+        "nome": "Joana",
+        "idade": 26,
+        "tipo_sanguineo": "O+",
+        "necessidades_de_sangue": "Urgente"
+    }
+}
+```
 
 ### 1. **Cadastrar recebedor** 📋
 **POST** `/recebedores/adicionar`
