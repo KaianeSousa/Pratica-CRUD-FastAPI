@@ -157,8 +157,22 @@ Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/
 
 - ### Doadores 👥
 
+  ### Entrada de dados: 
+
+```json
+{
+    "mensagem": "Doador cadastrado com sucesso:",
+    "doador": {
+        "nome": "Carla",
+        "idade": 28,
+        "tipo_sanguineo": "A-",
+        "data_da_ultima_doacao": "13-07-2022"
+    }
+}
+```
+
 ### 1. **Cadastrar doador** 📋
-**POST** `/doadores/adicionar`
+**POST** `api/doadores/adicionar`
 
 Cadastra um novo doador.
 
@@ -167,11 +181,11 @@ Cadastra um novo doador.
 {
     "mensagem": "Doador cadastrado com sucesso:",
     "doador": {
-        "id": 1,
-        "nome": "Beatriz",
-        "idade": 16,
-        "tipo_sanguineo": "O-",
-        "data_da_ultima_doacao": "23-06-2021"
+        "nome": "Carla",
+        "idade": 28,
+        "tipo_sanguineo": "A-",
+        "data_da_ultima_doacao": "13-07-2022",
+        "id": 1
     }
 }
 ```
@@ -192,7 +206,7 @@ Cadastra um novo doador.
   
 ### 2. **Listar todos os doadores** 📋
 
-**GET** `/doadores`
+**GET** `api/doadores`
 
 Retorna uma lista com todos os doadores cadastrados.
 
@@ -202,11 +216,11 @@ Retorna uma lista com todos os doadores cadastrados.
     "mensagem": "Lista de todos os doadores disponíveis:",
     "doadores": [
         {
-            "id": 1,
-            "nome": "Beatriz",
-            "idade": 16,
-            "tipo_sanguineo": "O-",
-            "data_da_ultima_doacao": "23-06-2021"
+        "nome": "Carla",
+        "idade": 28,
+        "tipo_sanguineo": "A-",
+        "data_da_ultima_doacao": "13-07-2022",
+        "id": 1
         }
     ]
 }
@@ -221,20 +235,21 @@ Retorna uma lista com todos os doadores cadastrados.
       
 ### 3. **Listar doador pelo ID** 📋
 
-**GET** `/doadores/{doador_id}`
+**GET** `api/doadores/{doador_id}`
 
 Retorna o doador cadastrado referente ao seu ID.
+
 
 **Resposta:**
 ```json
 {
     "mensagem": "Doador encontrado com sucesso:",
     "doador": {
-        "id": 1,
-        "nome": "Beatriz",
-        "idade": 16,
-        "tipo_sanguineo": "O-",
-        "data_da_ultima_doacao": "23-06-2021"
+        "nome": "Carla",
+        "idade": 28,
+        "tipo_sanguineo": "A-",
+        "data_da_ultima_doacao": "13-07-2022",
+        "id": 1
     }
 }
 ```
@@ -248,29 +263,38 @@ Retorna o doador cadastrado referente ao seu ID.
 
 ### 4. **Atualizar informações do doador** 📋
 
-**PUT** `/doadores/atualizar/{doador_id}`
+**PUT** `api/doadores/atualizar/{doador_id}`
 
 Permite modificar os dados do doador.
 
-- **Resposta:**
+### Dado modificado (é necessário informar todos os dados anteriores, não apenas a parte que deseja modificar):
+
 ```json
 {
-    "mensagem": "Dados do doador atualizados com sucesso:",
+        "data_da_ultima_doacao": "25-10-2024"
+    }
+}
+```
+
+**Resposta:**
+```json
+{
+    "mensagem": "Doador encontrado com sucesso:",
     "doador": {
-        "id": 1,
-        "nome": "Beatriz",
-        "idade": 17,
-        "tipo_sanguineo": "O-",
-        "data_da_ultima_doacao": "23-06-2021"
+        "nome": "Carla",
+        "idade": 28,
+        "tipo_sanguineo": "A-",
+        "data_da_ultima_doacao": "25-10-2024",
+        "id": 1
     }
 }
 ```
 
 ### 5. **Deletar doador** 📋
 
-**DELETE** `/doadores/{doador_id}`
+**DELETE** `api/doadores/{doador_id}`
 
-Deleta o doador e seus dados.
+Deleta o doador e seus dados pelo seu ID.
 
 - **Resposta:**
 ```json
@@ -282,7 +306,7 @@ Deleta o doador e seus dados.
 - ### Recebedores  👩‍🦳👨👧
 
 ### 1. **Cadastrar recebedor** 📋
-**POST** `/recebedores/adicionar`
+**POST** `api/recebedores/adicionar`
 
 Cadastra um novo recebedor.
 
@@ -291,11 +315,11 @@ Cadastra um novo recebedor.
 {
     "mensagem": "Recebedor cadastrado com sucesso:",
     "recebedor": {
-        "id": 1,
-        "nome": "Joana",
-        "idade": 26,
+        "nome": "Marta",
+        "idade": 46,
         "tipo_sanguineo": "O+",
-        "necessidades_de_sangue": "Urgente"
+        "necessidades_de_sangue": "Cirurgia de Urgência",
+        "id": 1
     }
 }
 ```
