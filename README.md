@@ -3,6 +3,7 @@
 Este projeto simula um sistema para gerenciamento de doadores e receptores de sangue, desenvolvido com o framework FastAPI e integrado a um banco de dados PostgreSQL, permitindo a criação e gestão de informações de maneira eficiente e organizada. Ele utiliza operações CRUD (Create, Read, Update e Delete) para manipular dados de doadores, receptores e doações de sangue.
 
 Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o sistema também armazena e processa dados diretamente no banco de dados, garantindo a persistência das informações. A lógica de validação de compatibilidade sanguínea foi incorporada, assegurando que as doações sejam realizadas para os tipos sanguíneos correspondentes, respeitando as regras biológicas entre os diferentes tipos sanguíneos. Essa funcionalidade também cobre situações especiais, como indivíduos com o raro "sangue dourado" (Rh nulo). Este tipo sanguíneo, devido à sua extrema raridade, pode doar para praticamente qualquer pessoa, mas só pode receber sangue do mesmo grupo.
+
 ---
 
 ## 📋 Funcionalidades
