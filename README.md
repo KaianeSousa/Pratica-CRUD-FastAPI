@@ -161,8 +161,6 @@ Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/
 
 ```json
 {
-    "mensagem": "Doador cadastrado com sucesso:",
-    "doador": {
         "nome": "Carla",
         "idade": 28,
         "tipo_sanguineo": "A-",
@@ -271,8 +269,9 @@ Permite modificar os dados do doador.
 
 ```json
 {
+  {
         "data_da_ultima_doacao": "25-10-2024"
-    }
+  }
 }
 ```
 
@@ -306,7 +305,20 @@ Deleta o doador e seus dados pelo seu ID.
 - ### Recebedores  👩‍🦳👨👧
 
 ### 1. **Cadastrar recebedor** 📋
+
 **POST** `api/recebedores/adicionar`
+
+  ### Entrada de dados: 
+
+```json
+{
+        "nome": "Marta",
+        "idade": 46,
+        "tipo_sanguineo": "O+",
+        "necessidades_de_sangue": "Cirurgia de Urgência",
+    }
+}
+```
 
 Cadastra um novo recebedor.
 
@@ -333,7 +345,7 @@ Cadastra um novo recebedor.
   
 ### 2. **Listar todos os recebedores** 📋
 
-**GET** `/recebedores`
+**GET** `api/recebedores`
 
 Retorna uma lista com todos os recebedores cadastrados.
 
@@ -341,13 +353,12 @@ Retorna uma lista com todos os recebedores cadastrados.
 ```json
 {
  "mensagem": "Lista de todos os recebedores disponíveis:",
-    "recebedores": [
-        {
-            "id": 1,
-            "nome": "Joana",
-            "idade": 26,
-            "tipo_sanguineo": "O+",
-            "necessidades_de_sangue": "Urgente"
+    "recebedores": {
+        "nome": "Marta",
+        "idade": 46,
+        "tipo_sanguineo": "O+",
+        "necessidades_de_sangue": "Cirurgia de Urgência",
+        "id": 1
         }
     ]
 }
@@ -362,7 +373,7 @@ Retorna uma lista com todos os recebedores cadastrados.
       
 ### 3. **Listar recebedor pelo ID** 📋
 
-**GET** `/recebedores/{recebedor_id}`
+**GET** `api/recebedores/{recebedor_id}`
 
 Retorna o doador cadastrado referente ao seu ID.
 
@@ -371,11 +382,11 @@ Retorna o doador cadastrado referente ao seu ID.
 {
     "mensagem": "Recebedor encontrado com sucesso:",
     "recebedor": {
-        "id": 1,
-        "nome": "Joana",
-        "idade": 26,
+        "nome": "Marta",
+        "idade": 46,
         "tipo_sanguineo": "O+",
-        "necessidades_de_sangue": "Urgente"
+        "necessidades_de_sangue": "Cirurgia de Urgência",
+        "id": 1
     }
 }
 ```
@@ -389,7 +400,7 @@ Retorna o doador cadastrado referente ao seu ID.
 
 ### 4. **Atualizar informações do recebedor** 📋
 
-**PUT** `/recebedores/atualizar/{recebedor_id}`
+**PUT** `api/recebedores/atualizar/{recebedor_id}`
 
 Permite modificar os dados do recebedor.
 
@@ -398,18 +409,18 @@ Permite modificar os dados do recebedor.
 {
     "mensagem": "Dados do recebedor atualizados com sucesso:",
     "recebedor": {
-        "id": 1,
-        "nome": "Joana",
-        "idade": 27,
-        "tipo_sanguineo": "O-",
-        "necessidades_de_sangue": "Urgente"
+        "nome": "Marta",
+        "idade": 46,
+        "tipo_sanguineo": "O+",
+        "necessidades_de_sangue": "Cirurgia de Urgência",
+        "id": 1
     }
 }
 ```
 
 ### 5. **Deletar doador** 📋
 
-**DELETE** `/recebedores/{recebedor_id}`
+**DELETE** `api/recebedores/{recebedor_id}`
 
 Deleta o recebedor e seus dados.
 
@@ -422,7 +433,7 @@ Deleta o recebedor e seus dados.
 ---
 - ### Doação 💉
 
-**POST** `/doacao/`
+**POST** `api/doacao/`
 
 Encontra o doador com o sangue compatível ao do recebedor.
 
@@ -434,17 +445,17 @@ Encontra o doador com o sangue compatível ao do recebedor.
 }
 ```
 
-**Resposta**
+**Resposta, caso os sangues sejam compatíveis**
 ```json
 {
-    "mensagem": "Doação compatível de Beatriz para Joana"
+    "mensagem": "Doação compatível de Carla para Marta"
 }
 ```
 
 - **Resposta, caso os sangues sejam incompatíveis:**
 ```json
 {
-    "detail": "Incompatibilidade: O+ não pode doar para Rh-nulo"
+    "detail": "Incompatibilidade: A- não pode doar para O+"
 }
 ```
   
