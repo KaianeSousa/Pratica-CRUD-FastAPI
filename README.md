@@ -1,9 +1,8 @@
 # 🩸 Sistema de Cadastro de Doadores
 
-Este projeto simula um sistema para gerenciamento de doadores e receptores de sangue, desenvolvido com o framework FastAPI, permitindo a criação e gestão de informações de maneira eficiente e organizada. Ele utiliza as operações CRUD (Create, Read, Update e Delete) para manipular dados de doadores e receptores.
+Este projeto simula um sistema para gerenciamento de doadores e receptores de sangue, desenvolvido com o framework FastAPI e integrado a um banco de dados PostgreSQL, permitindo a criação e gestão de informações de maneira eficiente e organizada. Ele utiliza operações CRUD (Create, Read, Update e Delete) para manipular dados de doadores, receptores e doações de sangue.
 
-Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o sistema conta com uma lógica para validação de compatibilidade sanguínea. Essa funcionalidade assegura que as doações sejam realizadas para os tipos sanguíneos correspondentes, respeitando as regras biológicas entre os diferentes tipos sanguíneos, incluindo situações especiais, como indivíduos com o raro "sangue dourado" (Rh nulo). Este tipo sanguíneo, devido à sua extrema raridade, pode doar para praticamente qualquer pessoa, mas só pode receber sangue do mesmo grupo.
-
+Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o sistema também armazena e processa dados diretamente no banco de dados, garantindo a persistência das informações. A lógica de validação de compatibilidade sanguínea foi incorporada, assegurando que as doações sejam realizadas para os tipos sanguíneos correspondentes, respeitando as regras biológicas entre os diferentes tipos sanguíneos. Essa funcionalidade também cobre situações especiais, como indivíduos com o raro "sangue dourado" (Rh nulo). Este tipo sanguíneo, devido à sua extrema raridade, pode doar para praticamente qualquer pessoa, mas só pode receber sangue do mesmo grupo.
 ---
 
 ## 📋 Funcionalidades
@@ -21,6 +20,9 @@ Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o 
 - **Excluir receptor:** Remova um receptor cadastrado do sistema.
 
 ### **Gerenciamento de Doações**
+
+- **Cadastrar doação:** Insira os IDs tanto do doador, quanto do recebedor.
+  
 - **Verificar compatibilidade sanguínea:**  
   - O sistema valida automaticamente a compatibilidade entre doador e receptor com base na **tabela de compatibilidade sanguínea**.
   - Tipos sanguíneos suportados:  
@@ -31,13 +33,15 @@ Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o 
     - Pode doar para qualquer um.
     - Pode receber apenas Rh nulo.  
 
+- **Excluir doação:** Remova uma doação sanguínea cadastrada no sistema.
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 - **Linguagem:** Python 3.12.5
 - **Framework Web:** FastAPI
 - **Servidor:** Uvicorn
-- **IDE:** PyCharm  
+- **IDE:** PyCharm
+- **Database:** PostgresSQL
 
 ---
 
@@ -170,7 +174,7 @@ Link da coleção: https://www.postman.com/kay-yak/workspace/fastapi/collection/
 ```
 
 ### 1. **Cadastrar doador** 📋
-**POST** `api/doadores/adicionar`
+**POST** `/doadores/adicionar`
 
 Cadastra um novo doador.
 
@@ -204,7 +208,7 @@ Cadastra um novo doador.
   
 ### 2. **Listar todos os doadores** 📋
 
-**GET** `api/doadores`
+**GET** `/doadores`
 
 Retorna uma lista com todos os doadores cadastrados.
 
@@ -233,7 +237,7 @@ Retorna uma lista com todos os doadores cadastrados.
       
 ### 3. **Listar doador pelo ID** 📋
 
-**GET** `api/doadores/{doador_id}`
+**GET** `/doadores/{doador_id}`
 
 Retorna o doador cadastrado referente ao seu ID.
 
@@ -261,7 +265,7 @@ Retorna o doador cadastrado referente ao seu ID.
 
 ### 4. **Atualizar informações do doador** 📋
 
-**PUT** `api/doadores/atualizar/{doador_id}`
+**PUT** `/doadores/atualizar/{doador_id}`
 
 Permite modificar os dados do doador.
 
@@ -291,7 +295,7 @@ Permite modificar os dados do doador.
 
 ### 5. **Deletar doador** 📋
 
-**DELETE** `api/doadores/{doador_id}`
+**DELETE** `/doadores/{doador_id}`
 
 Deleta o doador e seus dados pelo seu ID.
 
@@ -306,7 +310,7 @@ Deleta o doador e seus dados pelo seu ID.
 
 ### 1. **Cadastrar recebedor** 📋
 
-**POST** `api/recebedores/adicionar`
+**POST** `/recebedores/adicionar`
 
   ### Entrada de dados: 
 
@@ -345,7 +349,7 @@ Cadastra um novo recebedor.
   
 ### 2. **Listar todos os recebedores** 📋
 
-**GET** `api/recebedores`
+**GET** `/recebedores`
 
 Retorna uma lista com todos os recebedores cadastrados.
 
@@ -373,7 +377,7 @@ Retorna uma lista com todos os recebedores cadastrados.
       
 ### 3. **Listar recebedor pelo ID** 📋
 
-**GET** `api/recebedores/{recebedor_id}`
+**GET** `/recebedores/{recebedor_id}`
 
 Retorna o doador cadastrado referente ao seu ID.
 
@@ -400,7 +404,7 @@ Retorna o doador cadastrado referente ao seu ID.
 
 ### 4. **Atualizar informações do recebedor** 📋
 
-**PUT** `api/recebedores/atualizar/{recebedor_id}`
+**PUT** `/recebedores/atualizar/{recebedor_id}`
 
 Permite modificar os dados do recebedor.
 
@@ -420,7 +424,7 @@ Permite modificar os dados do recebedor.
 
 ### 5. **Deletar doador** 📋
 
-**DELETE** `api/recebedores/{recebedor_id}`
+**DELETE** `/recebedores/{recebedor_id}`
 
 Deleta o recebedor e seus dados.
 
@@ -433,7 +437,7 @@ Deleta o recebedor e seus dados.
 ---
 - ### Doação 💉
 
-**POST** `api/doacao/`
+**POST** `/doacao/`
 
 Encontra o doador com o sangue compatível ao do recebedor.
 
