@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 class DoadorBase(BaseModel):
-    id: Optional[int] 
     nome: str
     idade: int
     tipo_sanguineo: str
@@ -14,7 +13,6 @@ class DoadorBase(BaseModel):
         from_attributes = True
 
 class RecebedorBase(BaseModel):
-    id: Optional[int] 
     nome: str
     idade: int
     tipo_sanguineo: str
