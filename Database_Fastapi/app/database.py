@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-POSTGRESQL_DATABASE_URL = "postgresql://postgres:12345678@127.0.0.1:5433/fastapi"
+POSTGRESQL_DATABASE_URL = "postgresql://postgres:senha@db:5433/fastapi"
 
 
 engine = create_engine(POSTGRESQL_DATABASE_URL)
