@@ -36,6 +36,8 @@ Além de gerenciar informações básicas como nome, idade e tipo sanguíneo, o 
 ## 🛠️ Tecnologias Utilizadas
 - **Linguagem:** Python 3.12.5
 - **Framework Web:** FastAPI
+- **Template:** Jinja2
+- **Container:** Docker
 - **Servidor:** Uvicorn
 - **IDE:** PyCharm  
 
