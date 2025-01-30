@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
+#Altere a porta do postgres no código para a que ele funcione em seu computador
 POSTGRESQL_DATABASE_URL = "postgresql://postgres:senha@db:5433/fastapi"
 
 
