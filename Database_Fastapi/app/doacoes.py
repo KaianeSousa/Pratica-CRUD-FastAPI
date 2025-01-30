@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app import crud, schemas
 from app.database import get_db
-from app.models import Doacao  # Substitua pelo nome correto do seu modelo, se necessário.
+from app.models import Doacao 
 
 router = APIRouter()
 
