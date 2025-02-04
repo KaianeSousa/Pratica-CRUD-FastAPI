@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 class Doador(Base):
     __tablename__ = "doadores"
@@ -30,3 +30,10 @@ class Doacao(Base):
 
 Doador.doacoes = relationship("Doacao", back_populates="doador")
 Recebedor.doacoes = relationship("Doacao", back_populates="recebedor")
+
+class Usuario(Base):
+    __tablename__ = "usuarios"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    email = Column(String, unique=True, index=True)
+    senha_hash = Column(String)

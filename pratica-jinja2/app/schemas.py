@@ -1,28 +1,26 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 
 class DoadorBase(BaseModel):
-    id: Optional[int] 
     nome: str
     idade: int
     tipo_sanguineo: str
     data_da_ultima_doacao: str
 
     class Config:
-        orm_mode = True
-        allow_population_by_field_name = True
+        from_attribute = True
+        populate_by_namee = True
         from_attributes = True
 
 class RecebedorBase(BaseModel):
-    id: Optional[int] 
     nome: str
     idade: int
     tipo_sanguineo: str
     necessidades_de_sangue: str
 
     class Config:
-        orm_mode = True
-        allow_population_by_field_name = True
+        from_attribute = True
+        populate_by_namee = True
         from_attributes = True
 
 class DoacaoBase(BaseModel):
@@ -30,6 +28,11 @@ class DoacaoBase(BaseModel):
     recebedor_id: int
 
     class Config:
-        orm_mode = True
-        allow_population_by_field_name = True
+        from_attribute = True
+        populate_by_namee = True
         from_attributes = True
+
+class LoginSchema(BaseModel):
+    email: EmailStr
+    senha: str
+

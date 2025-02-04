@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Coleta e Doação de Sangue</title>
+    <script src="../static/js/recuperarSenha.js" defer></script>
+    <link rel="stylesheet" href="../static/css/recuperarSenha.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Recuperar Senha</h2>
+        <p>Enviaremos um link para que você possa redefinir sua senha.</p>
+        
+        <form action="/recuperar_senha" method="POST">
+            <label for="email">E-mail cadastrado:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="email">Nova senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            
+            <div class="btnRecuperarSenha">
+                <button id="btnEnviar" type="submit">Enviar</button>
+                <button id="btnCancelar" type="button">
+                    <a href="/" class="btnCancelar">Cancelar</a>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
