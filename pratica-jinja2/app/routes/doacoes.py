@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app import crud, schemas
 from app.database import get_db
-from app.models import Doacao  # Substitua pelo nome correto do seu modelo, se necessário.
+from app.models import Doacao
 
 router = APIRouter()
 
@@ -32,14 +32,19 @@ async def realizar_doacao(doacao: schemas.DoacaoBase, db: Session = Depends(get_
     tipo_recebedor = recebedor.tipo_sanguineo
 
     if tipo_recebedor not in tabela_de_compatibilidade_sanguinea[tipo_doador]["doa_para"]:
-        return {
-            "mensagem": f"Incompatibilidade: {tipo_doador} ({doador.nome}) não pode doar para {tipo_recebedor} ({recebedor.nome})."
-        }
+        compativel = False
+        mensagem = f"Incompatibilidade: {tipo_doador} ({doador.nome}) não pode doar para {tipo_recebedor} ({recebedor.nome})."
+    else:
+        compativel = True
+        mensagem = f"Doação compatível: {doador.nome} ({tipo_doador}) pode doar para {recebedor.nome} ({tipo_recebedor})."
 
     crud.create_doacao(db=db, doacao=doacao)
 
     return {
-        "mensagem": f"Doação compatível: {doador.nome} ({tipo_doador}) pode doar para {recebedor.nome} ({tipo_recebedor}).",
+        "doador": {"id": doador.id, "nome": doador.nome, "tipo_sanguineo": tipo_doador},
+        "recebedor": {"id": recebedor.id, "nome": recebedor.nome, "tipo_sanguineo": tipo_recebedor},
+        "compativel": compativel,
+        "mensagem": mensagem,
     }
 
 @router.delete("/deletar/{id}", response_model=dict)

@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Session
 from app import models, schemas
 from fastapi import HTTPException
+from app.models import Usuario
+from app.auth import gerar_hash
 
 # DOADORES
 def get_doador(db: Session, doador_id: int):
@@ -69,3 +71,14 @@ def create_doacao(db: Session, doacao: schemas.DoacaoBase):
     db.commit()
     db.refresh(db_doacao)
     return db_doacao
+
+#Recuperar senha
+def atualizar_senha(db: Session, email: str, nova_senha: str):
+    usuario = db.query(Usuario).filter(Usuario.email == email).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="E-mail não encontrado")
+
+    usuario.senha = gerar_hash(nova_senha)
+    db.commit()
+    db.refresh(usuario)
+    return usuario

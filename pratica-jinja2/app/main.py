@@ -47,19 +47,19 @@ app.add_middleware(
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
+async def login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
 @app.get("/cadastrar", response_class=HTMLResponse)
-async def index(request: Request):
+async def cadastrar_page(request: Request):
     return templates.TemplateResponse("cadastro.html", {"request": request})
 
 @app.get("/recuperarSenha", response_class=HTMLResponse)
-async def index(request: Request):
+async def recuperarSenha_page(request: Request):
     return templates.TemplateResponse("recuperarSenha.html", {"request": request})
 
 @app.get("/index", response_class=HTMLResponse)
-async def index(request: Request):
+async def index_page(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/doadores", response_class=HTMLResponse)
@@ -69,6 +69,10 @@ async def doadores_page(request: Request):
 @app.get("/recebedores", response_class=HTMLResponse)
 async def recebedores_page(request: Request):
     return templates.TemplateResponse("recebedores.html", {"request": request})
+
+app.get("/doacoes", response_class=HTMLResponse)
+async def doacoes_page(request: Request):
+    return templates.TemplateResponse("doacoes.html", {"request": request})
 
 app.include_router(doadores.router, prefix="/doadores")
 app.include_router(recebedores.router, prefix="/recebedores")

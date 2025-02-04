@@ -1,25 +1,30 @@
-document.getElementById("btnEnviar").addEventListener("click", async function (event) {
-    event.preventDefault();
-    
-    const email = document.getElementById("email").value;
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
 
-    if (!email) {
-        alert("Preencha o e-mail!");
-        return;
-    }
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    const response = await fetch("/auth/recuperar_senha", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
+        const email = document.getElementById('email').value;
+        const novaSenha = document.getElementById('senha').value;
+
+        fetch('/auth/recuperar-senha', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email, nova_senha: novaSenha }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.mensagem) {
+                alert(data.mensagem);
+                window.location.href = '/';
+            } else {
+                alert('Erro ao redefinir senha.');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     });
-
-    const data = await response.json();
-
-    if (response.ok) {
-        alert("Um link de redefinição foi enviado para seu e-mail.");
-        window.location.href = "/login";
-    } else {
-        alert(data.detail || "Erro ao solicitar recuperação de senha!");
-    }
 });

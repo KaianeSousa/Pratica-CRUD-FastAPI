@@ -36,3 +36,7 @@ class LoginSchema(BaseModel):
     email: EmailStr
     senha: str
 
+
+class RecuperarSenha(BaseModel):
+    email: EmailStr
+    nova_senha: str

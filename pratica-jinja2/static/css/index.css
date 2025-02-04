@@ -55,3 +55,7 @@ button a {
 button:hover {
     background-color: #28a28a;
 }
+
+.btnSair {
+    background-color: rgb(240, 165, 26) important!; 
+}

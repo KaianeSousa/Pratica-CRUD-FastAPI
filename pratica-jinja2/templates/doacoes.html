@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações</title>
+    <link rel="stylesheet" href="../static/css/doacoes.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Doações</h2>
+        <form id="formDoacao">
+            <label for="doador_id">ID do Doador:</label>
+            <input type="number" id="doador_id" name="doador_id" required>
+
+            <label for="recebedor_id">ID do Recebedor:</label>
+            <input type="number" id="recebedor_id" name="recebedor_id" required>
+
+            <button type="submit">Verificar Compatibilidade</button>
+        </form>
+
+        <h3>Resultado da Compatibilidade</h3>
+        <table id="tabelaCompatibilidade">
+            <thead>
+                <tr>
+                    <th>ID Doador</th>
+                    <th>Nome Doador</th>
+                    <th>Tipo Sanguíneo Doador</th>
+                    <th>ID Recebedor</th>
+                    <th>Nome Recebedor</th>
+                    <th>Tipo Sanguíneo Recebedor</th>
+                    <th>Compatível</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <script src="../static/js/doacoes.js"></script>
+</body>
+</html>
