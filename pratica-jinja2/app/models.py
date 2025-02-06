@@ -1,0 +1,25 @@
+from sqlalchemy import Column, Integer, String, ForeignKey
+from app.database import Base
+
+class Admin(Base):
+    __tablename__ = "admin"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    nome = Column(String, index=True, nullable=False)
+    email = Column(String, unique=True, index=True)
+    senha = Column(String)
+
+class Doador(Base):
+    __tablename__ = "doadores"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    nome = Column(String, index=True)
+    idade = Column(Integer)
+    tipo_sanguineo = Column(String)
+    data_da_ultima_doacao = Column(String)
+
+class Recebedor(Base):
+    __tablename__ = "recebedores"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    nome = Column(String, index=True)
+    idade = Column(Integer)
+    tipo_sanguineo = Column(String)
+    necessidades_de_sangue = Column(String)
