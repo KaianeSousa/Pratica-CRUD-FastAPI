@@ -1,76 +1,64 @@
-* {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #f4f7fc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
 }
 
 h2 {
-    color: #c62828;
-    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
 }
 
 .container {
-    background: white;
-    padding: 25px;
-    width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btnVoltar {
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 button {
-    background-color: #1f9475;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 12px;
-    width: 100%;
     border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-    transition: 0.3s;
-}
-
-button a {
-    text-decoration: none;
-    color: white;
-    display: block;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #28a28a;
+    background-color: #45a049;
 }
 
-#btnVoltar {
-    background-color: #e01f1f;
-}
-
-#btnVoltar:hover {
-    background-color: #d72d44;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
+#form {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#form div {
+    margin-bottom: 15px;
+}
+
+#form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
 .tabela-doadores {
@@ -80,15 +68,29 @@ input {
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 8px;
-    border: 1px solid #ccc;
-    text-align: center;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #d72d44;
-    color: white;
+    background-color: #f4f4f4;
+}
+
+.actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.actions button {
+    background-color: #f44336;
+}
+
+.actions button:hover {
+    background-color: #e53935;
 }

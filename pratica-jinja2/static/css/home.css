@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.row {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.row h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+
+.btnIndex {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+.btnIndex button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+.btnIndex button a {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btnDoador {
+  background-color: #27ae60;
+}
+
+.btnRecebedor {
+  background-color: #2980b9;
+}
+
+.btnSair {
+  background-color: #c0392b;
+}
+
+.btnIndex button a:hover {
+  opacity: 0.9;
+}

@@ -1,7 +1,6 @@
 const apiUrl = "/doadores";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const btnVoltar = document.getElementById("btnVoltar");
     const btnCadastrar = document.getElementById("btnCadastrar");
     const btnCancelar = document.getElementById("btnCancelar");
     const form = document.getElementById("form");
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             botao.addEventListener("click", async (e) => {
                 const id = e.target.getAttribute("data-id");
                 try {
-                    const response = await fetch(`${apiUrl}/buscar/${id}`);
+                    const response = await fetch(`${apiUrl}/${id}`);
                     if (response.ok) {
                         const doador = await response.json();
                         nome.value = doador.nome;
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             };
                             try {
                                 const response = await fetch(`${apiUrl}/atualizar/${id}`, {
-                                    method: "PUT",
+                                    method: "PATCH",
                                     headers: {
                                         "Content-Type": "application/json",
                                     },

@@ -1,5 +1,15 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from typing import List, Optional
+
+class Admin(BaseModel):
+    nome: str
+    email: str
+    senha: str
+
+    class Config:
+        from_attribute = True
+        populate_by_name = True
+        from_attributes = True
 
 class DoadorBase(BaseModel):
     nome: str
@@ -9,7 +19,7 @@ class DoadorBase(BaseModel):
 
     class Config:
         from_attribute = True
-        populate_by_namee = True
+        populate_by_name = True
         from_attributes = True
 
 class RecebedorBase(BaseModel):
@@ -20,23 +30,5 @@ class RecebedorBase(BaseModel):
 
     class Config:
         from_attribute = True
-        populate_by_namee = True
+        populate_by_name = True
         from_attributes = True
-
-class DoacaoBase(BaseModel):
-    doador_id: int
-    recebedor_id: int
-
-    class Config:
-        from_attribute = True
-        populate_by_namee = True
-        from_attributes = True
-
-class LoginSchema(BaseModel):
-    email: EmailStr
-    senha: str
-
-
-class RecuperarSenha(BaseModel):
-    email: EmailStr
-    nova_senha: str

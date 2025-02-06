@@ -11,9 +11,10 @@
 <h2>Doadores</h2>
 
 <div class="container">
-    <button id="btnVoltar" type="button">
-        <a href="/index" class="btnVoltar">Voltar</a> 
-    </button>
+
+    <a href="/home" class="btnVoltar">
+        <button id="btnVoltar" type="button">Voltar</button>
+    </a>
 
     <button id="btnCadastrar" type="button">Cadastrar Doador</button>
 
@@ -54,20 +55,18 @@
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Tipo Sanguíneo</th>
-                <th>Motivo da Doação</th>
+                <th>Última doação</th>
+                <th>Ações</th>
             </tr>
             </thead>
             <tbody class="tabela-doadores-body">
             <!-- lista -->
             </tbody>
-
-            <button id="btnEditar" type="button">Editar</button>
-            <button id="btnDeletar" type="button">Deletar</button>
         </table>
     </div>
-
 </div>
 </body>
-    <script src="../static/js/doadores.js"></script>
+<script src="../static/js/doadores.js"></script>
+<script src="../static/js/verificar-autenticacao.js"></script>
 
 </html>

@@ -1,7 +1,12 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
 from app.database import Base
-from pydantic import BaseModel, EmailStr
+
+class Admin(Base):
+    __tablename__ = "admin"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    nome = Column(String, index=True, nullable=False)
+    email = Column(String, unique=True, index=True)
+    senha = Column(String)
 
 class Doador(Base):
     __tablename__ = "doadores"
@@ -19,21 +24,14 @@ class Recebedor(Base):
     tipo_sanguineo = Column(String)
     necessidades_de_sangue = Column(String)
 
-class Doacao(Base):
-    __tablename__ = "doacoes"
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    doador_id = Column(Integer, ForeignKey("doadores.id"))
-    recebedor_id = Column(Integer, ForeignKey("recebedores.id"))
-
-    doador = relationship("Doador", back_populates="doacoes")
-    recebedor = relationship("Recebedor", back_populates="doacoes")
-
-Doador.doacoes = relationship("Doacao", back_populates="doador")
-Recebedor.doacoes = relationship("Doacao", back_populates="recebedor")
-
-class Usuario(Base):
-    __tablename__ = "usuarios"
-
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    email = Column(String, unique=True, index=True)
-    senha_hash = Column(String)
+# class Doacao(Base):
+#     __tablename__ = "doacoes"
+#     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+#     doador_id = Column(Integer, ForeignKey("doadores.id"))
+#     recebedor_id = Column(Integer, ForeignKey("recebedores.id"))
+#
+#     doador = relationship("Doador", back_populates="doacoes")
+#     recebedor = relationship("Recebedor", back_populates="doacoes")
+#
+# Doador.doacoes = relationship("Doacao", back_populates="doador")
+# Recebedor.doacoes = relationship("Doacao", back_populates="recebedor")

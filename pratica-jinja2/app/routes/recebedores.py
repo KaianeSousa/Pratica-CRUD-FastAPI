@@ -9,7 +9,7 @@ templates = Jinja2Templates(directory="templates")
 
 router = APIRouter()
 
-@router.get("/listar", response_model=List[schemas.RecebedorBase])
+@router.get("/listar")
 def listar_recebedores(request: Request, db: Session = Depends(get_db)):
     print("Iniciando listagem de recebedores")
     try:
@@ -20,21 +20,21 @@ def listar_recebedores(request: Request, db: Session = Depends(get_db)):
         print(f"Erro: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Erro ao listar recebedores: {str(e)}")
 
-@router.get("/{recebedor_id}", response_model=schemas.RecebedorBase)
+@router.get("/{recebedor_id}")
 def pesquisar_recebedor_por_id(recebedor_id: int, db: Session = Depends(get_db)):
     recebedor = crud.get_recebedor(db, recebedor_id)
     if not recebedor:
         raise HTTPException(status_code=404, detail="Recebedor não encontrado")
     return recebedor
 
-@router.post("/adicionar", response_model=schemas.RecebedorBase)
+@router.post("/adicionar")
 def adicionar_recebedor(recebedor: schemas.RecebedorBase, db: Session = Depends(get_db)):
     recebedor_existente = db.query(models.Recebedor).filter(models.Recebedor.nome == recebedor.nome).first()
     if recebedor_existente:
         raise HTTPException(status_code=400, detail="Recebedor já cadastrado")
     return crud.create_recebedor(db=db, recebedor=recebedor)
 
-@router.put("/atualizar/{recebedor_id}", response_model=schemas.RecebedorBase)
+@router.patch("/atualizar/{recebedor_id}")
 def atualizar_recebedor(recebedor_id: int, recebedor: schemas.RecebedorBase, db: Session = Depends(get_db)):
     recebedor_existente = crud.get_recebedor(db, recebedor_id)
     if not recebedor_existente:

@@ -1,122 +1,68 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    background-color: #f4f7fc;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-.container {
-    background: white;
-    padding: 25px;
-    width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+.cadastro-container {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: #c62828;
-    margin-bottom: 15px;
+.cadastro-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.lbCadastro form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
-.input-group {
-    display: flex;
-    justify-content: space-between;
+form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.input-group div {
-    width: 48%;
+.botao-cadastro {
+  width: 100%;
+  background-color: #27ae60;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-label {
-    font-weight: bold;
-    text-align: left;
-    display: block;
-    margin-bottom: 5px;
+.botao-cadastro:hover {
+  background-color: #218c54;
 }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
 }
 
-select {
-    background-color: rgb(242, 238, 238); 
-    appearance: none;
-    cursor: pointer;
+.login-link a {
+  color: #c0392b;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-select option {
-    background-color: white;
-}
-
-select option:checked {
-    background-color: #1976d2;
-    color: white;
-}
-
-input:focus, select:focus {
-    border-color: #1976d2;
-    outline: none;
-}
-
-.btn-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-#btnCadastrar {
-    background-color: #1f9475;
-    color: white;
-    transition: 0.3s;
-}
-
-#btnCadastrar:hover {
-    background-color: #28a28a;
-}
-
-#btnCancelar {
-    background-color: #e01f1f;
-    color: white;
-    transition: 0.3s;
-}
-
-#btnCancelar:hover {
-    background-color: #d72d44;
-}
-
-.btnCadastrar, .btnCancelar {
-    text-decoration: none;
-    color: white;
-    display: block;
-    text-align: center;
+.login-link a:hover {
+  color: #a93226;
 }

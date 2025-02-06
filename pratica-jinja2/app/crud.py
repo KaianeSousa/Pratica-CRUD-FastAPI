@@ -1,8 +1,6 @@
 from sqlalchemy.orm import Session
 from app import models, schemas
 from fastapi import HTTPException
-from app.models import Usuario
-from app.auth import gerar_hash
 
 # DOADORES
 def get_doador(db: Session, doador_id: int):
@@ -40,7 +38,7 @@ def get_recebedor(db: Session, recebedor_id: int):
     return db.query(models.Recebedor).filter(models.Recebedor.id == recebedor_id).first()
 
 def create_recebedor(db: Session, recebedor: schemas.RecebedorBase):
-    db_recebedor = models.Recebedor(**recebedor.dict())  
+    db_recebedor = models.Recebedor(**recebedor.dict())  # Desestruturando o objeto do schema
     db.add(db_recebedor)
     db.commit()
     db.refresh(db_recebedor)
@@ -50,7 +48,7 @@ def update_recebedor(db: Session, id: int, recebedor: schemas.RecebedorBase):
     db_recebedor = db.query(models.Recebedor).filter(models.Recebedor.id == id).first()
     if not db_recebedor:
         raise HTTPException(status_code=404, detail="Recebedor não encontrado")
-    for key, value in recebedor.dict(exclude_unset=True).items():  
+    for key, value in recebedor.dict(exclude_unset=True).items():  # Não tenta atualizar o valor original se não foi enviado
         setattr(db_recebedor, key, value)
     db.commit()
     db.refresh(db_recebedor)
@@ -62,23 +60,4 @@ def delete_recebedor(db: Session, id: int):
         raise HTTPException(status_code=404, detail="Recebedor não encontrado")
     db.delete(db_recebedor)
     db.commit()
-    return {"message": f"Recebedor {db_recebedor.nome} deletado com sucesso"}  
-
-# DOAÇÕES
-def create_doacao(db: Session, doacao: schemas.DoacaoBase):
-    db_doacao = models.Doacao(**doacao.dict())
-    db.add(db_doacao)
-    db.commit()
-    db.refresh(db_doacao)
-    return db_doacao
-
-#Recuperar senha
-def atualizar_senha(db: Session, email: str, nova_senha: str):
-    usuario = db.query(Usuario).filter(Usuario.email == email).first()
-    if not usuario:
-        raise HTTPException(status_code=404, detail="E-mail não encontrado")
-
-    usuario.senha = gerar_hash(nova_senha)
-    db.commit()
-    db.refresh(usuario)
-    return usuario
+    return {"message": f"Recebedor {db_recebedor.nome} deletado com sucesso"}  # Retorna o nome do recebedor deletado
