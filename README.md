@@ -140,6 +140,10 @@ Intellij
 ```bash
   idea .
 ```
+- Subir no Docker
+```bash
+docker-compose up -d --build doacoes
+```
 
 - Crie um arquivo main.py, cole o código do arquivo com o mesmo nome neste repositório e o execute com
 ```bash
